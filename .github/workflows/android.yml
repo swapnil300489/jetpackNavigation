@@ -15,7 +15,8 @@ jobs:
 
       - name: Set up JDK 17
         uses: actions/setup-java@v4
-        with:
+        with:- name: Build with Gradle
+        run: ./gradlew build
           java-version: '17'
           distribution: 'temurin'
           cache: gradle
@@ -24,4 +25,5 @@ jobs:
         run: chmod +x gradlew
 
       - name: Build with Gradle
-        run: ./gradlew build
+        run: ./gradlew build --stacktrace --debug
+
